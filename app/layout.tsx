@@ -1,9 +1,10 @@
+// app/layout.tsx (ФИНАЛЬНАЯ ВЕРСИЯ БЕЗ ПОВТОРНЫХ HTML-ТЕГОВ)
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import RootLayoutWrapper from "@/components/layout/RootLayoutWrapper"; // ИМПОРТ ОБЕРТКИ
 import "./globals.css";
 
+// Подключение шрифтов (как у тебя)
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,22 +26,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de">
-      <body className="flex flex-col min-h-screen">
-        <Header />
-
-        {/* Контейнер для контента. 
-            2. flex-grow: растягивает этот блок, заставляя его занимать все доступное вертикальное пространство.
-            3. pt-16: оставляем отступ от фиксированной шапки.
-        */}
-        <main className="grow ">
-          {children}
-        </main>
-
-        {/* Подвал (останется в самом низу) */}
-        <Footer />
-
-      </body>
+    // ВОТ ОН, ЕДИНСТВЕННЫЙ ТЕГ <html>
+    <html lang="de" className={`${geistSans.variable} ${geistMono.variable}`}>
+      {/* Мы передаем сюда детей, а RootLayoutWrapper возвращает тег <body> 
+        со всей нужной структурой или без нее (для /studio).
+      */}
+      <RootLayoutWrapper>
+        {children}
+      </RootLayoutWrapper>
     </html>
   );
 }

@@ -1,30 +1,47 @@
 // app/menu/page.tsx
 import React from 'react';
+import { createClient } from "next-sanity";
 
-// ЭТО ТЕСТОВЫЕ ДАННЫЕ (Пока без Sanity)
-// Мы просто имитируем, как это будет выглядеть
-const testButtons = [
-    {
-        id: 1,
-        label: "Wochenkarte (Mittagstisch)",
-        subtext: "Gültig: Di - Sa, 11:00 - 14:30",
-        href: "/menus/menu-lunch.pdf"
-    },
-    {
-        id: 2,
-        label: "Saisonkarte (Pfifferlinge)",
-        subtext: "Frische Pilzgerichte",
-        href: "/menus/menu-season.pdf"
-    },
-    {
-        id: 3,
-        label: "Hauptspeisekarte",
-        subtext: "Unsere Klassiker & Schnitzel",
-        href: "/menus/menu-main.pdf"
+// --- КОНФИГУРАЦИЯ SANITY (Берется из .env.local) ---
+// Эти переменные Sanity автоматически записал в твой .env.local
+const client = createClient({
+    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+    apiVersion: "2024-01-01",
+    useCdn: false, // Отключаем кэш, чтобы шеф видел обновления мгновенно
+});
+
+// Тип данных, который мы ожидаем
+interface MenuBtn {
+    _id: string;
+    label: string;
+    fileUrl: string;
+}
+
+// Асинхронная функция загрузки данных
+async function getMenuButtons(): Promise<MenuBtn[]> {
+    try {
+        // GROQ-запрос: дай все документы типа 'menuBtn', отсортируй по 'priority',
+        // и сделай прямую ссылку на файл (file.asset->url)
+        const data = await client.fetch<MenuBtn[]>(`
+      *[_type == "menuBtn"] | order(priority asc) {
+        _id,
+        label,
+        "fileUrl": file.asset->url
+      }
+    `);
+        return data;
+    } catch (error) {
+        console.error("Failed to fetch menu buttons from Sanity:", error);
+        // В случае ошибки возвращаем пустой массив, чтобы сайт не упал
+        return [];
     }
-];
+}
 
-export default function MenuPage() {
+export default async function MenuPage() {
+    // Получаем реальные данные из Sanity
+    const buttons = await getMenuButtons();
+
     return (
         <main className="min-h-screen bg-white flex flex-col items-center pt-32 pb-20 px-4">
 
@@ -36,46 +53,45 @@ export default function MenuPage() {
             {/* 2. ОПИСАНИЕ */}
             <div className="max-w-2xl text-center text-gray-500 mb-16 leading-relaxed font-light text-lg">
                 <p className="mb-4">
-                    Unsere Küchenchefs haben mit Leidenschaft und Kreativität eine Auswahl
-                    an Speisen zusammengestellt, die Deinen Gaumen verwöhnen werden.
+                    Hier können Sie unsere aktuellen Karten ansehen.
                 </p>
                 <p>
-                    Hier können Sie unsere aktuellen Karten als PDF ansehen oder herunterladen.
+                    Wählen Sie eine Karte aus, um sie als PDF zu öffnen.
                 </p>
             </div>
 
-            {/* 3. КНОПКИ (Столбиком) */}
+            {/* 3. КНОПКИ (Рендерим из Sanity) */}
             <div className="flex flex-col gap-6 w-full max-w-sm">
 
-                {testButtons.map((btn) => (
-                    <a
-                        key={btn.id}
-                        href={btn.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group relative"
-                    >
-                        {/* Сама кнопка */}
-                        <div className="
-              w-full text-center py-5 px-6 
-              bg-accent-cafe text-white 
-              uppercase tracking-[0.2em] text-sm font-semibold
-              shadow-md transition-all duration-300
-              group-hover:bg-opacity-90 group-hover:shadow-lg group-hover:-translate-y-1
-            ">
-                            {btn.label}
-                        </div>
-
-                        {/* Подпись под кнопкой (опционально, для красоты) */}
-                        <div className="text-center text-xs text-gray-400 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            {btn.subtext}
-                        </div>
-                    </a>
-                ))}
-
+                {buttons.length === 0 ? (
+                    <p className="text-center text-gray-400">
+                        ⚠️ Es sind keine Menükarten verfügbar. Bitte im Studio hochladen.
+                    </p>
+                ) : (
+                    buttons.map((btn) => (
+                        <a
+                            key={btn._id}
+                            href={btn.fileUrl}
+                            // ЭТИ ДВЕ СТРОЧКИ ОТКРЫВАЮТ В НОВОЙ ВКЛАДКЕ (PREVIEW MODE):
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group relative"
+                        >
+                            {/* Кнопка */}
+                            <div className="
+                  w-full text-center py-5 px-6 
+                  bg-accent-cafe text-white 
+                  uppercase tracking-[0.2em] text-sm font-semibold
+                  shadow-md transition-all duration-300
+                  group-hover:bg-opacity-90 group-hover:shadow-lg group-hover:-translate-y-1
+                ">
+                                {btn.label}
+                            </div>
+                        </a>
+                    ))
+                )}
             </div>
 
-            {/* Декор внизу */}
             <div className="mt-20 w-16 h-1 bg-gray-200 rounded-full"></div>
 
         </main>

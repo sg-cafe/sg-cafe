@@ -94,7 +94,7 @@ export default function Footer() {
                         <Link href="/impressum" className="hover:text-accent-cafe transition-colors uppercase tracking-wide">
                             Impressum
                         </Link>
-                        <Link href="/privacy" className="hover:text-accent-cafe transition-colors uppercase tracking-wide">
+                        <Link href="/datenschutz" className="hover:text-accent-cafe transition-colors uppercase tracking-wide">
                             Datenschutz
                         </Link>
                     </div>
