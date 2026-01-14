@@ -1,4 +1,5 @@
 import AboutSection from "@/components/sections/AboutSection";
+import PhilosophySection from "@/components/sections/PhilosophySection";
 import ContactSection from "@/components/sections/ContactSection";
 import HeroSection from "@/components/sections/HeroSection";
 import MenuSection from "@/components/sections/MenuSection";
@@ -22,6 +23,11 @@ export default function Home() {
       {/* Секция "Меню" */}
       <section id="menu" className="scroll-mt-24">
         <MenuSection />
+      </section>
+
+      {/* Секция "Философия" */}
+      <section id="contact" className="scroll-mt-24">
+        <PhilosophySection />
       </section>
 
       {/* Секция "Контакты" */}

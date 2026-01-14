@@ -26,7 +26,7 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <section className="relative h-[70vh] w-full flex items-center justify-center overflow-hidden">
 
             {/* --- КАРУСЕЛЬ ФОНО --- */}
             <div className="absolute inset-0 z-0 overflow-hidden">
@@ -57,13 +57,25 @@ export default function HeroSection() {
                 </AnimatePresence>
 
                 {/* Затемнение фона */}
-                <div className="absolute inset-0 bg-black/60 z-10"></div>
+                <div className="absolute inset-0 bg-black/50 z-10"></div>
             </div>
 
             {/* --- КОНТЕНТ ПО ЦЕНТРУ --- */}
             <div className="relative z-20 text-center text-white px-4 flex flex-col items-center">
 
                 {/* 1. Логотип */}
+               
+
+                {/* 2. Слова через тире — ГИГАНТСКИЙ, НО ЛЕГКИЙ */}
+                <motion.h2
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                    className="uppercase tracking-[0.4em] text-2xl md:text-xl mb-4 text-white/95 font-bold"
+                >
+                    {tags.join(" ")}
+                </motion.h2>
+
                 <motion.div
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
@@ -71,32 +83,22 @@ export default function HeroSection() {
                     className="mb-3"
                 >
                     <Image
-                        src="/icons/logo-small.png" // Убедись, что путь верный
+                        src="/icons/logo-4.png" // Убедись, что путь верный
                         alt="Logo"
                         width={100}
                         height={100}
-                        className="brightness-80 drop-shadow-2xl"
+                        className="brightness-90 drop-shadow-2xl"
                     />
                 </motion.div>
-
-                {/* 2. Слова через тире — ГИГАНТСКИЙ, НО ЛЕГКИЙ */}
-                <motion.h2
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.4 }}
-                    className="uppercase tracking-[0.4em] text-2xl md:text-xl mb-4 text-white/95"
-                >
-                    {tags.join(" ")}
-                </motion.h2>
 
                 {/* 3. Название кафе — МЕНЬШЕ, НО ПЛОТНОЕ И АКЦЕНТНОЕ */}
                 <motion.h4
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.6 }}
-                    className="text-xl md:text-3xl uppercase tracking-wide"
+                    className="text-xl md:text-3xl uppercase tracking-wide font-bold"
                 >
-                    SG Gaststätte Dietzenbach
+                    Gaststätte SG Dietzenbach
                 </motion.h4>
             </div>
         </section>

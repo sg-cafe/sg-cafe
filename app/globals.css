@@ -67,6 +67,9 @@ html {
 .bg-light-cafe {
   background-color: var(--color-brand-light-blue);
 }
+.bg-light-cafe-tr {
+    background-color: color-mix(in srgb, var(--color-brand-light-blue), transparent 20%);
+}
 
 .bg-accent-cafe {
   background-color: var(--color-brand-accent);
@@ -93,4 +96,8 @@ html {
 .hover-text-accent:hover {
   color: var(--color-brand-accent);
   opacity: 0.8;
+}
+
+.border-blue{
+  border: 2px solid var(--color-brand-blue)
 }
