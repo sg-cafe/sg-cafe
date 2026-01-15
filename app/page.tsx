@@ -26,7 +26,7 @@ export default function Home() {
       </section>
 
       {/* Секция "Философия" */}
-      <section id="contact" className="scroll-mt-24">
+      <section className="scroll-mt-24">
         <PhilosophySection />
       </section>
 

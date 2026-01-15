@@ -1,157 +1,145 @@
-// app/events/page.tsx
 import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import { Phone, Mail, Users, MessageSquare, Trophy, Heart, Truck, CheckCircle2 } from 'lucide-react';
 
-// Данные о типах мероприятий (легко менять текст и картинки)
-const eventTypes = [
+const ROOMS = [
     {
-        title: "Geburtstage & Feiern",
-        description: "Machen Sie Ihren besonderen Tag unvergesslich. Wir bieten Platz für bis zu 50 Personen, individuelle Dekoration und natürlich köstliche Torten.",
-        image: "https://images.unsplash.com/photo-1530103862676-de3c9da59af7?q=80&w=800&auto=format&fit=crop", // Праздник
-        icon: "🎉"
+        title: "Hauptsaal",
+        description: "Unser gemütlicher Hauptraum für das tägliche Geschäft und gesellige Runden.",
+        capacity: "Flexibel",
+        features: ["Zentraler Tresen", "Gemütliches Ambiente"],
+        image: "/images/hall-main.jpg"
     },
     {
-        title: "Trauerfeiern",
-        description: "Ein würdevoller Rahmen für den Abschied. In ruhiger Atmosphäre kümmern wir uns diskret um die Bewirtung Ihrer Gäste.",
-        image: "", // Спокойная атмосфера (цветы/свечи)
-        icon: "🕯️"
+        title: "Raucherraum",
+        description: "Ein separater Bereich für Gäste, die in entspannter Atmosphäre rauchen möchten.",
+        capacity: "ca. 20-30",
+        features: ["Gute Lüftung", "Eigener Bereich"],
+        image: "/images/smoking-room.jpg"
     },
     {
-        title: "Geschäftstreffen",
-        description: "Produktive Meetings bei bestem Kaffee. Nutzen Sie unsere ruhigen Ecken und das schnelle WLAN für Ihre geschäftlichen Besprechungen.",
-        image: "", // Бизнес встреча
-        icon: "🤝"
+        title: "Separates Zimmer",
+        description: "Ideal für diskrete Trauerfeiern oder private Familienfeste im kleinen Kreis.",
+        capacity: "bis 40",
+        features: ["Absolute Privatsphäre", "Eigener Service"],
+        image: "/images/private-room.jpg"
     },
     {
-        title: "Weihnachtsfeiern",
-        description: "Planen Sie Ihre Firmen- oder Familienfeier bei uns. Wir stellen Ihnen ein festliches Menü oder Buffet zusammen.",
-        image: "", // Рождество/Ужин
-        icon: "🎄"
+        title: "Großer Veranstaltungssaal",
+        description: "Unser Prunkstück für große Hochzeiten, Firmenfeiern und Bälle.",
+        capacity: "bis 300 Personen",
+        features: ["Tanzfläche", "Bühne möglich", "Eigener Eingang"],
+        image: "/images/big-hall.jpg"
     }
 ];
 
 export default function EventsPage() {
     return (
-        <main className="min-h-screen bg-white">
-
-            {/* --- 1. HERO HEADER (Заголовок) --- */}
-            <div className="bg-primary-cafe py-16 px-4 text-center">
-                <h1 className="text-white drop-shadow-md mb-4">Feiern & Tagen</h1>
-                <p className="text-white/90 text-xl max-w-2xl mx-auto font-light">
-                    Der perfekte Ort für Ihre Momente. Von der privaten Geburtstagsfeier bis zum geschäftlichen Meeting.
-                </p>
+        <main className="bg-light-cafe min-h-screen font-sans">
+            {/* 1. Контактная панель (Sticky) */}
+            <div className="bg-primary-cafe text-white py-3 px-4 sticky top-0 z-50 shadow-lg border-b border-accent-cafe">
+                <div className="max-w-6xl mx-auto flex flex-wrap justify-center md:justify-between items-center gap-4">
+                    <p className="font-medium text-sm uppercase tracking-widest text-accent-cafe">Anfragen & Reservierungen:</p>
+                    <div className="flex gap-6">
+                        <a href="tel:+49123456789" className="flex items-center gap-2 hover:text-accent-cafe transition-colors font-bold">
+                            <Phone size={18} /> +49 (0) 123 456 789
+                        </a>
+                        <a href="mailto:info@gaststaette.de" className="flex items-center gap-2 hover:text-accent-cafe transition-colors font-bold">
+                            <Mail size={18} /> info@gaststaette.de
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            {/* --- 2. INTRO TEXT --- */}
-            <section className="py-12 px-4 max-w-4xl mx-auto text-center">
-                <h2 className="text-primary-cafe mb-6">Ihr Event in der SG Gaststätte</h2>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                    Suchen Sie einen gemütlichen und stilvollen Ort für Ihr nächstes Event?
-                    Unser Café bietet flexible Räumlichkeiten, die wir ganz nach Ihren Wünschen gestalten.
-                    Lassen Sie uns die Planung übernehmen, damit Sie sich ganz auf Ihre Gäste konzentrieren können.
-                </p>
+            {/* 2. Hero-секция */}
+            <section className="py-10 px-4 bg-white">
+                <div className="max-w-4xl mx-auto text-center">
+                    <span className="text-primary-cafe text-xs uppercase tracking-[0.3em] font-bold mb-4 block">
+                        Tradition & Gastfreundschaft
+                    </span>
+                    <h1 className="text-4xl md:text-6xl font-semibold text-primary-cafe uppercase mb-8 tracking-tight">
+                        Events & Kulinarik
+                    </h1>
+                    <p className="text-xl text-gray-600 leading-relaxed font-light">
+                        Vom Fußballabend in der Gemeinschaft bis zur großen Traumhochzeit –
+                        wir bieten für jeden Anlass den perfekten Rahmen.
+                    </p>
+                </div>
             </section>
 
-            {/* --- 3. EVENT CARDS (Сетка карточек) --- */}
-            <section className="px-4 pb-20 max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {eventTypes.map((item, index) => (
-                        <div
-                            key={index}
-                            className="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-100"
-                        >
-                            {/* Картинка */}
-                            <div className="relative h-64 w-full overflow-hidden">
-                                {/* <Image
-                                    // src={item.image}
-                                    alt={item.title}
-                                    fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                /> */}
-                                {/* Иконка поверх картинки */}
-                                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-full text-3xl shadow-sm">
-                                    {item.icon}
+            {/* 3. НОВЫЙ БЛОК: Catering / Partyservice */}
+            <section className="max-w-5xl mx-auto px-4 mb-10">
+                <div className="bg-accent-cafe/10 border-2 border-dashed border-accent-cafe rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10">
+                    <div className="bg-accent-cafe p-6 rounded-full text-primary-cafe shadow-xl">
+                        <Truck size={60} strokeWidth={1.5} />
+                    </div>
+                    <div className="flex-1 text-center md:text-left">
+                        <h2 className="text-3xl font-bold text-primary-cafe mb-4 uppercase">Partyservice & Catering</h2>
+                        <p className="text-lg text-gray-700 mb-6">
+                            Möchten Sie unsere Küche bei Ihnen zu Hause oder in einer externen Location genießen?
+                            Wir beliefern Ihr Event mit bis zu <strong className="text-primary-cafe text-xl">100 Personen</strong>.
+                        </p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm font-medium text-primary-cafe">
+                            <div className="flex items-center gap-2"><CheckCircle2 size={16} /> Individuelle Menüplanung</div>
+                            <div className="flex items-center gap-2"><CheckCircle2 size={16} /> Kalte & Warme Buffets</div>
+                            <div className="flex items-center gap-2"><CheckCircle2 size={16} /> Pünktliche Lieferung</div>
+                            <div className="flex items-center gap-2"><CheckCircle2 size={16} /> Rundum-Sorglos-Service</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 4. Сетка залов */}
+            <section className="max-w-6xl mx-auto px-4 py-6">
+                <h2 className="text-center text-3xl font-bold text-primary-cafe mb-16 uppercase tracking-widest">
+                    Unsere Räumlichkeiten
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    {ROOMS.map((room, idx) => (
+                        <div key={idx} className="group cursor-default">
+                            <div className="relative h-72 w-full overflow-hidden rounded-2xl mb-6 shadow-lg">
+                                <div className="absolute inset-0 bg-gray-200 flex items-center justify-center text-gray-400 italic">
+                                    [ Фото: {room.title} ]
+                                </div>
+                                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-1 rounded-full text-xs font-bold text-primary-cafe shadow-sm">
+                                    {room.capacity}
                                 </div>
                             </div>
-
-                            {/* Текст карточки */}
-                            <div className="p-8">
-                                <h3 className="text-primary-cafe mt-0 mb-3">{item.title}</h3>
-                                <p className="text-gray-600 mb-0">{item.description}</p>
+                            <h3 className="text-2xl font-bold text-primary-cafe mb-3 group-hover:text-accent-cafe transition-colors">
+                                {room.title}
+                            </h3>
+                            <p className="text-gray-600 mb-4 leading-relaxed italic">
+                                "{room.description}"
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                                {room.features.map((f, i) => (
+                                    <span key={i} className="text-[10px] uppercase tracking-tighter bg-primary-cafe text-white px-3 py-1 rounded-md">
+                                        {f}
+                                    </span>
+                                ))}
                             </div>
                         </div>
                     ))}
                 </div>
             </section>
 
-            {/* --- 4. FEATURES (Иконки преимуществ) --- */}
-            <section className="bg-light-cafe py-16 px-4">
-                <div className="max-w-6xl mx-auto">
-                    <h2 className="text-center text-primary-cafe mb-12">Unsere Ausstattung</h2>
-
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                        {/* Feature 1 */}
-                        <div className="flex flex-col items-center">
-                            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-3xl shadow-sm mb-4 text-accent-cafe">
-                                📡
-                            </div>
-                            <span className="font-semibold text-dark-cafe">Free WiFi</span>
-                        </div>
-
-                        {/* Feature 2 */}
-                        <div className="flex flex-col items-center">
-                            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-3xl shadow-sm mb-4 text-accent-cafe">
-                                🔊
-                            </div>
-                            <span className="font-semibold text-dark-cafe">Sound System</span>
-                        </div>
-
-                        {/* Feature 3 */}
-                        <div className="flex flex-col items-center">
-                            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-3xl shadow-sm mb-4 text-accent-cafe">
-                                🍽️
-                            </div>
-                            <span className="font-semibold text-dark-cafe">Individuelles Buffet</span>
-                        </div>
-
-                        {/* Feature 4 */}
-                        <div className="flex flex-col items-center">
-                            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-3xl shadow-sm mb-4 text-accent-cafe">
-                                🅿️
-                            </div>
-                            <span className="font-semibold text-dark-cafe">Parkplätze</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* --- 5. CTA (Призыв к действию) --- */}
-            <section className="py-20 px-4 text-center">
-                <div className="max-w-3xl mx-auto bg-white border-2 border-accent-cafe/20 rounded-2xl p-8 md:p-12 shadow-lg">
-                    <h2 className="text-accent-cafe mt-0">Planen Sie Ihr Event mit uns!</h2>
-                    <p className="text-lg text-gray-600 mb-8">
-                        Haben Sie Fragen oder möchten Sie einen Termin prüfen?
-                        Rufen Sie uns an oder schreiben Sie uns eine Nachricht.
+            {/* 5. Подвал с акцентом */}
+            <section className="bg-primary-cafe py-10 mt-10">
+                <div className="max-w-4xl mx-auto px-4 text-center text-white">
+                    <h2 className="text-3xl font-bold mb-6">Planen Sie ein Event?</h2>
+                    <p className="text-xl opacity-80 mb-10 font-light">
+                        Ob Hochzeit, Trauerfeier oder ein Fußballabend mit Freunden –
+                        kontaktieren Sie uns für ein unverbindliches Angebot.
                     </p>
-
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link
-                            href="/contact"
-                            className="bg-accent-cafe text-white px-8 py-3 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity shadow-md"
-                        >
-                            Kontakt aufnehmen
-                        </Link>
-                        <a
-                            href="tel:+49123456789"
-                            className="border-2 border-primary-cafe text-primary-cafe px-8 py-3 rounded-lg font-bold text-lg hover:bg-primary-cafe hover:text-white transition-colors"
-                        >
+                    <div className="flex text-white flex-col sm:flex-row justify-center gap-4">
+                        <a href="tel:+49123456789" className="bg-accent-cafe  px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-transform">
                             Anrufen
+                        </a>
+                        <a href="mailto:info@gaststaette.de" className="border-2 border-accent-cafe text-accent-cafe px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-accent-cafe hover:text-primary-cafe transition-all">
+                            E-Mail Schreiben
                         </a>
                     </div>
                 </div>
             </section>
-
         </main>
     );
 }

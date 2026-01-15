@@ -11,7 +11,7 @@ const navItems = [
     { name: 'Startseite', href: '/' },
     { name: 'Über uns', href: '/#about' }, // Скролл к id="about"
     { name: 'Speisekarte', href: '/#menu' }, // Скролл к id="menu"
-    { name: 'Feiern & Anlässe', href: '/#events' }, // Скролл к id="events"
+    { name: 'Feiern & Anlässe', href: '/events' }, // Скролл к id="events"
     { name: 'Kontakt', href: '/#contact' }, // Скролл к id="contact"
 ];
 export default function MobileMenu({ isOpen, onClose }: MenuProps) {
