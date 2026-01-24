@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "SG Gaststätte",
   description: "Vereinsgaststätte SG Dietzenbach",
+  icons: {
+    icon: '/favicon.png',
+  }
 };
 
 export default function RootLayout({

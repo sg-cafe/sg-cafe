@@ -5,7 +5,7 @@ import NavLink from '../NavLink'; // Импортируем наш универ�
 const navItems = [
     { name: 'Startseite', href: '/' },
     { name: 'Speisekarte', href: '/#menu' }, // Скролл к id="menu"
-    { name: 'Feiern & Anlässe', href: '/#events' }, // Скролл к id="events"
+    { name: 'Feiern & Anlässe', href: '/events' }, // Скролл к id="events"
     { name: 'Über uns', href: '/#about' }, // Скролл к id="about"
     { name: 'Kontakt', href: '/#contact' }, // Скролл к id="contact"
 ];
@@ -19,7 +19,7 @@ export default function DesktopNav() {
                     key={item.name}
                     href={item.href}
                     // Здесь можно задать размер шрифта специально для десктопа
-                    className="text-lg tracking-wide text-accent-cafe "
+                    className="text-lg tracking-wide text-accent-cafe"
                 >
                     {item.name}
                 </NavLink>

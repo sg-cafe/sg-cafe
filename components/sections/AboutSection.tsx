@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 
 export default function AboutSection() {
     return (
-        <section id="about" className= "bg-light-cafe scroll-mt-24 overflow-hidden">      
+        <section id="about" className= "bg-light-cafe scroll-mt-24 overflow-hidden ">      
             <div className="max-w-7xl mx-auto px-6 md:px-12">
-                <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20" >
+                <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20 md:justify-center " >
 
                     {/* ТЕКСТ: Наша история */}
                     <motion.div

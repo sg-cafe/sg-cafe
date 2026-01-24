@@ -35,21 +35,6 @@ const ROOMS = [
 export default function EventsPage() {
     return (
         <main className="bg-light-cafe min-h-screen font-sans">
-            {/* 1. Контактная панель (Sticky) */}
-            <div className="bg-primary-cafe text-white py-3 px-4 sticky top-0 z-50 shadow-lg border-b border-accent-cafe">
-                <div className="max-w-6xl mx-auto flex flex-wrap justify-center md:justify-between items-center gap-4">
-                    <p className="font-medium text-sm uppercase tracking-widest text-accent-cafe">Anfragen & Reservierungen:</p>
-                    <div className="flex gap-6">
-                        <a href="tel:+49123456789" className="flex items-center gap-2 hover:text-accent-cafe transition-colors font-bold">
-                            <Phone size={18} /> +49 (0) 123 456 789
-                        </a>
-                        <a href="mailto:info@gaststaette.de" className="flex items-center gap-2 hover:text-accent-cafe transition-colors font-bold">
-                            <Mail size={18} /> info@gaststaette.de
-                        </a>
-                    </div>
-                </div>
-            </div>
-
             {/* 2. Hero-секция */}
             <section className="py-10 px-4 bg-white">
                 <div className="max-w-4xl mx-auto text-center">

@@ -33,6 +33,7 @@ export default function NavLink({ href, children, onClick, className = '' }: Nav
 
             {/* Линия подчеркивания */}
             <span
+               
                 className={`
           absolute left-0 -bottom-1 h-[2px] transition-all duration-300
           

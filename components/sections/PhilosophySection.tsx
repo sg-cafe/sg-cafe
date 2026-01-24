@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function PhilosophySection() {
     return (
-        <section className="bg-light-cafe relative overflow-hidden">
+        <section className="bg-light-cafe relative overflow-hidden ">
             <div className="max-w-4xl mx-auto px-3">
                 
                 <div className='bg-primary-cafe  py-12 px-3 rounded-xl'>

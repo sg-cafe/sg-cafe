@@ -57,6 +57,7 @@ html {
 /* Мы добавляем их как обычные классы, чтобы использовать в className */
 
 .bg-primary-cafe {
+  
   background-color: var(--color-brand-blue);
 }
 

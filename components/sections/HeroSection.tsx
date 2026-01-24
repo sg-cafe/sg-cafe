@@ -2,17 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Список твоих фото из папки public
 const images = [
     "/fotos/cafe-4.jpg",
     "/fotos/cafe-1.jpg",
     "/fotos/cafe-8.jpg",
 ];
 
-const tags = [" Essen -", "Events", "Sport"];
+const tags = [" Essen -", "Events -", "Sport"];
 
 export default function HeroSection() {
     const [index, setIndex] = useState(0);
@@ -26,7 +24,7 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="relative h-[70vh] w-full flex items-center justify-center overflow-hidden">
+        <section className="relative h-[75vh] md:h-[80vh] w-full flex items-center justify-center overflow-hidden">
 
             {/* --- КАРУСЕЛЬ ФОНО --- */}
             <div className="absolute inset-0 z-0 overflow-hidden">
@@ -64,7 +62,7 @@ export default function HeroSection() {
             <div className="relative z-20 text-center text-white px-4 flex flex-col items-center">
 
                 {/* 1. Логотип */}
-               
+
 
                 {/* 2. Слова через тире — ГИГАНТСКИЙ, НО ЛЕГКИЙ */}
                 <motion.h2
@@ -83,10 +81,10 @@ export default function HeroSection() {
                     className="mb-3"
                 >
                     <Image
-                        src="/icons/logo-4.png" // Убедись, что путь верный
+                        src="/icons/logo-10.png" // Убедись, что путь верный
                         alt="Logo"
-                        width={100}
-                        height={100}
+                        width={120}
+                        height={120}
                         className="brightness-90 drop-shadow-2xl"
                     />
                 </motion.div>
