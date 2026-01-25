@@ -35,8 +35,8 @@ export default async function MenuPage() {
 
     // Ссылки на картинки (замени их на свои пути в папке public или ссылки из Sanity)
     const bgImages = [
-        { src: "/eat/eat.jpg", pos: "top-10 left-[-5%] rotate-12" },
-        { src: "/eat/eat-2.jpg", pos: "top-1/4 right-[-2%] -rotate-12" },
+        { src: "/eat/eat.jpg", pos: "top-15 left-[-5%] rotate-12" },
+        { src: "/eat/eat-2.jpg", pos: "top-1/3 right-[-2%] -rotate-12" },
         { src: "/eat/eat-4.jpg", pos: "bottom-40 left-[5%] -rotate-6" },
         { src: "/eat/eat-5.jpg", pos: "bottom-10 right-[2%] rotate-12" },
 
@@ -51,13 +51,13 @@ export default async function MenuPage() {
                 mx-auto — центрирование
                 relative overflow-hidden — чтобы картинки декора не выходили за этот блок
             */}
-            <div className="relative mx-auto w-full md:w-[70%] min-h-screen  flex flex-col items-center justify-center p-6">
+            <div className="relative mx-auto w-full md:w-[70%] min-h-screen  flex flex-col items-center justify-center p-6 z-0">
 
                 {/* --- Фоновые изображения (теперь привязаны к границам 70%) --- */}
                 {bgImages.map((img, index) => (
                     <div
                         key={index}
-                        className={`absolute ${img.pos} z-50 w-40 h-40 md:w-64 md:h-64 opacity-40 pointer-events-none`}
+                        className={`absolute ${img.pos} w-40 h-40 md:w-64 md:h-64 opacity-40 pointer-events-none`}
                     >
                         <img
                             src={img.src}
@@ -68,7 +68,7 @@ export default async function MenuPage() {
                 ))}
 
                 {/* --- Основной контент --- */}
-                <div className="relative z-10 flex flex-col items-center w-full">
+                <div className="relative z-50 flex flex-col items-center w-full">
                     {/* Заголовок */}
                     <div className="text-center mb-16">
                         <span className="text-primary-cafe text-xs uppercase tracking-[0.3em] font-semibold mb-3 block">
@@ -81,7 +81,7 @@ export default async function MenuPage() {
                     </div>
 
                     {/* Список кнопок */}
-                    <div className="grid grid-cols-1 gap-4 w-full max-w-[320px]">
+                    <div className="grid grid-cols-1 gap-4 w-full max-w-[320px] z-50">
                         {buttons.length === 0 ? (
                             <p className="text-[#1B263B]/50 text-center font-light italic">Momentan keine Karten.</p>
                         ) : (
