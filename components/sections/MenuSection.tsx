@@ -9,13 +9,20 @@ interface MenuBtn {
 
 async function getMenuButtons(): Promise<MenuBtn[]> {
     try {
-        const data = await client.fetch<MenuBtn[]>(`
-      *[_type == "menuBtn"] | order(priority asc) {
-        _id,
-        label,
-        "fileUrl": file.asset->url
-      }
-    `);
+        const data = await client.fetch<MenuBtn[]>(
+            `*[_type == "menuBtn"] | order(priority asc) {
+                _id,
+                label,
+                "fileUrl": file.asset->url
+            }`,
+            {}, // Второй аргумент — параметры запроса (пустой объект)
+            {
+                
+                next: {
+                    revalidate: 0 
+                }
+            }
+        );
         return data;
     } catch (error) {
         console.error("Sanity error:", error);
@@ -30,7 +37,7 @@ export default async function MenuPage() {
     const bgImages = [
         { src: "/eat/eat.jpg", pos: "top-10 left-[-5%] rotate-12" },
         { src: "/eat/eat-2.jpg", pos: "top-1/4 right-[-2%] -rotate-12" },
-        { src: "/eat/eat-4.jpg", pos: "bottom-30 left-[5%] -rotate-6" },
+        { src: "/eat/eat-4.jpg", pos: "bottom-40 left-[5%] -rotate-6" },
         { src: "/eat/eat-5.jpg", pos: "bottom-10 right-[2%] rotate-12" },
 
     ];

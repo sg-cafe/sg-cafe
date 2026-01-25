@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, Users, MessageSquare, Trophy, Heart, Truck, CheckCircle2 } from 'lucide-react';
+import Image from 'next/image';
 
 const ROOMS = [
     {
@@ -7,7 +8,7 @@ const ROOMS = [
         description: "Unser gemütlicher Hauptraum für das tägliche Geschäft und gesellige Runden.",
         capacity: "Flexibel",
         features: ["Zentraler Tresen", "Gemütliches Ambiente"],
-        image: "/images/hall-main.jpg"
+        image: "/rooms/main-room.jpg"
     },
     {
         title: "Raucherraum",
@@ -34,9 +35,9 @@ const ROOMS = [
 
 export default function EventsPage() {
     return (
-        <main className="bg-light-cafe min-h-screen font-sans">
+        <main className="bg-light-cafe min-h-screen font-sans relative top-[80px]">
             {/* 2. Hero-секция */}
-            <section className="py-10 px-4 bg-white">
+            <section className="py-10 px-4 ">
                 <div className="max-w-4xl mx-auto text-center">
                     <span className="text-primary-cafe text-xs uppercase tracking-[0.3em] font-bold mb-4 block">
                         Tradition & Gastfreundschaft
@@ -83,7 +84,13 @@ export default function EventsPage() {
                         <div key={idx} className="group cursor-default">
                             <div className="relative h-72 w-full overflow-hidden rounded-2xl mb-6 shadow-lg">
                                 <div className="absolute inset-0 bg-gray-200 flex items-center justify-center text-gray-400 italic">
-                                    [ Фото: {room.title} ]
+                                    <Image
+                                        src={room.image}
+                                        alt={room.title}
+                                        fill 
+                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                    />
                                 </div>
                                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-1 rounded-full text-xs font-bold text-primary-cafe shadow-sm">
                                     {room.capacity}
@@ -116,10 +123,10 @@ export default function EventsPage() {
                         kontaktieren Sie uns für ein unverbindliches Angebot.
                     </p>
                     <div className="flex text-white flex-col sm:flex-row justify-center gap-4">
-                        <a href="tel:+49123456789" className="bg-accent-cafe  px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-transform">
+                        <a href="tel:+49 0 6074 3888" className="bg-accent-cafe  px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-transform">
                             Anrufen
                         </a>
-                        <a href="mailto:info@gaststaette.de" className="border-2 border-accent-cafe text-accent-cafe px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-accent-cafe hover:text-primary-cafe transition-all">
+                        <a href="sg.gaststaette@gmail.com" className="border-2 border-accent-cafe text-accent-cafe px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-accent-cafe hover:text-primary-cafe transition-all">
                             E-Mail Schreiben
                         </a>
                     </div>
