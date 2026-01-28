@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex flex-col relative min-h-screen top-[50px] md:top-[0px]">
+    <main className="flex flex-col min-h-screen top-[50px] md:top-[0px]">
 
       {/* --- 1. HERO SECTION (Главный экран) --- */}
       <section id="hero" className="scroll-mt-24">

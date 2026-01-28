@@ -5,9 +5,9 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
-    "/fotos/cafe-4.jpg",
-    "/fotos/cafe-1.jpg",
-    "/fotos/cafe-8.jpg",
+    "/fotos/main-room.jpg",
+    "/fotos/main-room-3.png",
+    "/fotos/terassa-1.png",
 ];
 
 const tags = [" Essen -", "Events -", "Sport"];
@@ -24,7 +24,7 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="relative h-[75vh] md:h-[80vh] w-full flex items-center justify-center overflow-hidden">
+        <section className="relative h-[75vh] md:h-[90vh] w-full flex items-center justify-center overflow-hidden">
 
             {/* --- КАРУСЕЛЬ ФОНО --- */}
             <div className="absolute inset-0 z-0 overflow-hidden">

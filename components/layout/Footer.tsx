@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Footer() {
     return (
-        <footer className="w-full bg-primary-cafe text-white py-10 px-4">
+        <footer className="w-full bg-primary-cafe text-white py-10 px-4 ">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
 
                 {/* Лого или Название */}
@@ -22,6 +22,14 @@ export default function Footer() {
                         className="opacity-70 hover:opacity-100 transition-opacity"
                     >
                         Facebook
+                    </a>
+                    <a
+                        href="https://www.instagram.com/sg.gaststeatte_dietzenbach?igsh=eDFhbjRtd3JneW4x"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="opacity-70 hover:opacity-100 transition-opacity"
+                    >
+                        Instagram
                     </a>
                 </div>
 
