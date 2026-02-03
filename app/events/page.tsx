@@ -38,14 +38,7 @@ const ROOMS = [
         capacity: "bis 100 Personen",
         features: ["Buffet-Service", "Individuelle Planung", "Lieferung"],
         image: "/fotos/cartering.png" // Можно поставить фото красивого блюда или фуршета
-    },
-     {
-        title: "Großer Veranstaltungssaal",
-        description: "Unser Prunkstück für große Hochzeiten, Firmenfeiern und festliche Bälle.",
-        capacity: "bis 300 Personen",
-        features: ["Tanzfläche", "Bühne möglich", "Eigener Eingang"],
-        image: "/rooms/big-hall.jpg"
-    },
+    }
 ];
 
 export default function EventsPage() {

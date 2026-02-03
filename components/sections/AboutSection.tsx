@@ -17,19 +17,17 @@ export default function AboutSection() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="w-full md:w-1/2 flex flex-col"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-dark-cafe leading-tight mb-6">
-                            Handgemacht, ehrlich <br />
-                            <span className="text-accent-cafe">&</span> herzlich.
+                        <h2 className="text-4xl md:text-5xl font-bold text-dark-cafe leading-tight mb-6 uppercase tracking-tight">
+                            Handgemacht. <br />
+                            <span className="text-accent-cafe">Ehrlich.</span> Herzlich.
                         </h2>
 
                         <div className="space-y-4 text-dark-cafe text-lg leading-relaxed font-light">
                             <p>
-                                In der <span className="font-semibold">SG Gaststätte</span> dreht sich alles um das, was wirklich zählt: den Geschmack.
-                                Als Herzstück unseres Sportvereins sind wir mehr als nur ein Restaurant – wir sind ein Treffpunkt für Freunde und Genießer.
+                                In der <span className="font-semibold text-primary-cafe">SG-Gaststätte</span> steht im Mittelpunkt, was wirklich zählt: authentischer Geschmack und echte Gastfreundschaft. Als zentraler Treffpunkt unseres Sportvereins sind wir weit mehr als nur ein Restaurant – wir sind ein Ort der Begegnung, des Austauschs und des Genusses.
                             </p>
                             <p>
-                                Unsere Küche zeichnet sich durch Ehrlichkeit aus. Wir verzichten на unnötigen Schnickschnack
-                                и сосредоточены на высококачественных ингредиентах.
+                                Unsere Küche folgt einem klaren Anspruch an Qualität und Transparenz. Wir konzentrieren uns bewusst auf ausgewählte, hochwertige Zutaten und eine handwerklich saubere Zubereitung. Ohne überflüssigen Schnickschnack, dafür mit Sorgfalt, Leidenschaft und Liebe zum Detail entstehen Gerichte, die überzeugen – ehrlich, bodenständig und geschmackvoll.
                             </p>
                         </div>
                     </motion.div>
@@ -46,7 +44,7 @@ export default function AboutSection() {
                                 src="/fotos/main-room-2.png"
                                 alt="SG Gaststätte Atmosphäre"
                                 fill
-                                className="object-cover transition-transform duration-700"
+                                className="object-cover transition-transform duration-700 hover:scale-105"
                                 priority
                             />
                         </div>
@@ -55,8 +53,6 @@ export default function AboutSection() {
 
                 {/* ВТОРОЙ БЛОК: Фото слева, Текст справа */}
                 <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20">
-
-                    {/* Фото появляется СЛЕВА */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -66,7 +62,7 @@ export default function AboutSection() {
                     >
                         <div className="relative h-[400px] md:h-[600px] w-full overflow-hidden shadow-xl rounded-xl">
                             <Image
-                                src="/eat/eat-8.png" // Замени на свое фото (например, блюдо или кухня)
+                                src="/eat/eat-8.png"
                                 alt="Unsere Qualität"
                                 fill
                                 className="object-cover transition-transform duration-700 hover:scale-105"
@@ -74,7 +70,6 @@ export default function AboutSection() {
                         </div>
                     </motion.div>
 
-                    {/* Текст появляется СПРАВА */}
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -82,19 +77,17 @@ export default function AboutSection() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="w-full md:w-1/2 flex flex-col"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-dark-cafe leading-tight mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-dark-cafe leading-tight mb-6 uppercase tracking-tight">
                             Qualität, die man <br />
                             <span className="text-accent-cafe">schmeckt</span>.
                         </h2>
 
                         <div className="space-y-4 text-dark-cafe text-lg leading-relaxed font-light">
                             <p>
-                                Bei uns kommen nur die besten Zutaten in den Topf. Wir arbeiten eng mit regionalen Partnern zusammen,
-                                um Ihnen stets frische und geschmackvolle Gerichte zu servieren.
+                                In unserer Vereinsgaststätte legen wir größten Wert auf Qualität und Frische. Deshalb kommen bei uns ausschließlich sorgfältig ausgewählte Zutaten in den Topf. Durch die enge Zusammenarbeit mit regionalen Partnern garantieren wir Ihnen stets frische, hochwertige und geschmackvolle Gerichte.
                             </p>
                             <p>
-                                Von der sorgfältigen Auswahl des Fleisches bis hin zu unseren hausgemachten Saucen –
-                                jedes Detail zählt, чтобы сделать ваш визит особенным.
+                                Von der bewussten Auswahl unseres Fleisches bis hin zu liebevoll hausgemachten Saucen – bei uns zählt jedes Detail, damit Sie sich bei uns rundum wohlfühlen und Ihren Besuch genießen können.
                             </p>
                         </div>
                     </motion.div>

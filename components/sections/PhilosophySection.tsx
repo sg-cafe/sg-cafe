@@ -20,16 +20,16 @@ export default function PhilosophySection() {
                     {/* Текстовый блок */}
                     <div className="space-y-8 text-white text-lg md:text-xl font-light leading-relaxed">
                         <p>
-                            Bei uns trifft authentische deutsche Küche auf herzliche Atmosphäre.
-                            Ob Sie für ein gemütliches Abendessen kommen, gemeinsam beim Fußball
-                            mitfiebern oder besondere Momente feiern – wir sind Ihr Ort für echte Gastlichkeit.
+                            Bei uns verbindet sich authentische deutsche Küche mit einer herzlichen, einladenden Atmosphäre.
+                            Ob für ein gemütliches Abendessen, gemeinsames Mitfiebern bei spannenden Fußballspielen oder das
+                            Feiern besonderer Anlässe – wir sind Ihr Ort für echte Gastlichkeit und geselliges Beisammensein.
                         </p>
 
                         <p>
-                            Mit Platz für bis zu <strong>300 Gäste</strong> bieten wir den idealen Rahmen für
-                            Hochzeiten, Geburtstage und Firmenfeiern. In unseren separaten Räumlichkeiten
-                            finden Sie zudem die nötige Ruhe für geschäftliche Meetings oder einen
-                            würdevollen, diskreten Rahmen für Trauerfeiern.
+                            
+                            Mit Platz für bis zu <strong>300 Gäste</strong> bieten wir den passenden Rahmen für Hochzeiten, 
+                            Geburtstage und Firmenfeiern. Unsere separaten Räumlichkeiten ermöglichen darüber hinaus eine ruhige 
+                            Umgebung für geschäftliche Meetings sowie einen würdevollen und diskreten Rahmen für Trauerfeiern.
                         </p>
                     </div>
                 </div>
@@ -41,9 +41,12 @@ export default function PhilosophySection() {
                     Unser Catering-Service
                 </h3>
                 <p className="text-dark-cafe text-lg leading-relaxed">
+                    Möchten Sie unsere Spezialitäten an einem Ort Ihrer Wahl genießen? 
+                    Mit unserem <strong>Catering- und Partyservice</strong> begleiten wir Ihre Veranstaltung kulinarisch und sorgen dafür, 
+                    dass es Ihnen und Ihren Gästen an nichts fehlt.
+                    Gerne beraten wir Sie persönlich und individuell bei der Auswahl der Speisen, der Zusammenstellung des 
+                    Menüs sowie bei der Planung Ihres Events, damit alles genau Ihren Vorstellungen entspricht
                     Möchten Sie unsere Spezialitäten an einem Ort Ihrer Wahl genießen?
-                    Mit unserem <strong>Catering & Partyservice</strong> begleiten wir Ihr Event
-                    kulinarisch und sorgen dafür, dass es Ihren Gästen an nichts fehlt.
                 </p>
             </div>
 
