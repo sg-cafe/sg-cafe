@@ -1,6 +1,7 @@
 // components/layout/Footer.tsx
 import React from 'react';
 import Link from 'next/link';
+import { ExternalLink } from 'lucide-react';
 
 export default function Footer() {
     return (
@@ -13,6 +14,7 @@ export default function Footer() {
                     <span className="text-[10px] opacity-50 tracking-[0.2em]">Dietzenbach</span>
                 </div>
 
+               
                 {/* Соцсети */}
                 <div className="flex gap-8">
                     <a
@@ -40,6 +42,26 @@ export default function Footer() {
                 </div>
 
             </div>
+
+            <div className="flex justify-center py-6">
+                <a
+                    href="https://www.sg-dietzenbach.de/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                            flex items-center gap-3 
+                            text-accent-cafe border border-accent-cafe/40 
+                            px-8 py-3 rounded-full 
+                            hover:bg-accent-cafe hover:text-primary-cafe 
+                            transition-all duration-300
+                            text-xs font-bold uppercase tracking-[0.2em]
+                        "
+                >
+                    <span>Zur Vereinswebseite</span>
+                    <ExternalLink size={14} />
+                </a>
+            </div>
+
 
             <div className="text-center mt-10 text-[10px] opacity-30 uppercase tracking-[0.3em]">
                 © {new Date().getFullYear()} SG-Vereinsgaststätte. Alle Rechte vorbehalten.
