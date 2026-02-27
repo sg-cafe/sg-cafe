@@ -3,7 +3,7 @@ import React from 'react';
 export default function ImpressumPage() {
     return (
         <main className="bg-light-cafe min-h-screen py-16 px-4">
-            <div className="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100 text-gray-800">
+            <div className="max-w-7xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100 text-gray-800">
 
                 <h1 className="text-xl font-bold text-primary-cafe mb-8 border-b-2 border-accent-cafe pb-2 uppercase tracking-wide">
                     Impressum
@@ -35,7 +35,7 @@ export default function ImpressumPage() {
                 </section>
 
                 {/* Налоговый номер */}
-                <section className="mb-10">
+                {/* <section className="mb-10">
                     <h2 className="text-xl font-semibold text-primary-cafe mb-4">Umsatzsteuer-ID</h2>
                     <p className="italic text-gray-500">
                         Umsatzsteuer-Identifikationsnummer gem. § 27 a Umsatzsteuergesetz:
@@ -43,7 +43,7 @@ export default function ImpressumPage() {
                     <p className="mt-1">[Falls vorhanden, hier Nummer eintragen / Если есть номер, впиши его сюда]</p>
                 </section>
 
-                <hr className="my-10 border-gray-100" />
+                <hr className="my-10 border-gray-100" /> */}
 
                 {/* Юридические тексты */}
                 <div className="prose prose-sm max-w-none text-gray-600 space-y-6 leading-relaxed">

@@ -3,7 +3,7 @@ import React from 'react';
 export default function DatenschutzPage() {
     return (
         <main className="bg-light-cafe min-h-screen py-16 px-4">
-            <div className="max-w-3xl mx-auto bg-white p-4 md:p-12 rounded-2xl shadow-sm border border-gray-100 text-gray-800">
+            <div className="max-w-7xl mx-auto bg-white p-4 md:p-12 rounded-2xl shadow-sm border border-gray-100 text-gray-800">
                 <h1 className="text-xl font-bold text-primary-cafe mb-8 border-b-2 border-accent-cafe pb-2 uppercase tracking-wide">
                     Datenschutzerklärung
                 </h1>
@@ -21,17 +21,30 @@ export default function DatenschutzPage() {
                     <section className="bg-gray-50 p-6 rounded-xl border-l-4 border-accent-cafe">
                         <h2 className="text-xl font-bold text-primary-cafe mb-4">Spamschutz mit Google reCAPTCHA</h2>
                         <p>
-                            Wir haben Google reCAPTCHA in Formularen auf unserer Webseite implementiert, um zu überprüfen, ob die in den Formularen eingegebenen Daten von menschlichen Besuchern stammen oder von Maschinen oder automatisierten Programmen, die auch als "Bots" bekannt sind.
+                            Wir nutzen „Google reCAPTCHA“ (im Folgenden „reCAPTCHA“) auf unserer Website. Anbieter ist die Google Ireland Limited („Google“), Gordon House, Barrow Street, Dublin 4, Irland.
                         </p>
                         <p className="mt-2">
-                            Dieses Tool analysiert automatisch das Verhalten der Webseitenbesucher, sobald sie mit की Webseite interagieren... [Полный текст из твоего сообщения]
+                            Mit reCAPTCHA soll überprüft werden, ob die Dateneingabe auf unserer Website (z. B. in einem Kontaktformular) durch einen Menschen oder durch ein automatisiertes Programm erfolgt. Hierzu analysiert reCAPTCHA das Verhalten des Websitebesuchers anhand verschiedener Merkmale. Diese Analyse beginnt automatisch, sobald der Websitebesucher die Website betritt.
                         </p>
-                        <p className="mt-4 text-xs italic">
-                            Weitere Informationen finden Sie in der Datenschutzerklärung von Google reCAPTCHA:
-                            <a href="https://policies.google.com/privacy" target="_blank" className="text-accent-cafe underline ml-1">
-                                https://policies.google.com/privacy
-                            </a>
+                        <p className="mt-2 font-medium">
+                            Zur Analyse wertet reCAPTCHA verschiedene Informationen aus (z. B. IP-Adresse, Verweildauer des Websitebesuchers auf der Website oder vom Nutzer getätigte Mausbewegungen). Die bei der Analyse erfassten Daten werden an Google weitergeleitet.
                         </p>
+                        <p className="mt-2 text-sm">
+                            Die Datenverarbeitung erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong>. Der Websitebetreiber hat ein berechtigtes Interesse daran, seine Webangebote vor missbräuchlicher automatisierter Ausspähung und vor SPAM zu schützen.
+                        </p>
+                        <div className="mt-4 pt-4 border-t border-gray-200">
+                            <p className="text-xs italic">
+                                Weitere Informationen zu Google reCAPTCHA sowie die Datenschutzerklärung von Google entnehmen Sie folgenden Links:
+                            </p>
+                            <div className="flex flex-col gap-1 mt-2">
+                                <a href="https://policies.google.com/privacy" target="_blank" className="text-accent-cafe underline text-xs">
+                                    https://policies.google.com/privacy
+                                </a>
+                                <a href="https://policies.google.com/terms" target="_blank" className="text-accent-cafe underline text-xs">
+                                    https://policies.google.com/terms
+                                </a>
+                            </div>
+                        </div>
                     </section>
 
                     {/* Webseitenanalyse (Jimdo / Hosting) */}
