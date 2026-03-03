@@ -29,11 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // ВОТ ОН, ЕДИНСТВЕННЫЙ ТЕГ <html>
-    <html lang="de" className={`${geistSans.variable} ${geistMono.variable}`}>
-      {/* Мы передаем сюда детей, а RootLayoutWrapper возвращает тег <body> 
-        со всей нужной структурой или без нее (для /studio).
-      */}
+    <html lang="de" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <RootLayoutWrapper>
         {children}
       </RootLayoutWrapper>

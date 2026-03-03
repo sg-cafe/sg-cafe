@@ -3,19 +3,19 @@ import { defineField, defineType } from 'sanity'
 
 export default defineType({
     name: 'menuBtn',
-    title: 'Кнопки Меню (PDF)',
+    title: 'Speisekarte-Buttons (PDF)',
     type: 'document',
     fields: [
         defineField({
             name: 'label',
-            title: 'Название кнопки',
-            description: 'Например: Wochenkarte (Недельное меню)',
+            title: 'Button-Beschriftung',
+            description: 'Beispiel: Wochenkarte oder Hauptspeisekarte',
             type: 'string',
             validation: (rule) => rule.required(),
         }),
         defineField({
             name: 'file',
-            title: 'PDF Файл',
+            title: 'PDF-Datei',
             type: 'file',
             options: {
                 accept: '.pdf'
@@ -24,8 +24,8 @@ export default defineType({
         }),
         defineField({
             name: 'priority',
-            title: 'Порядок (1 - самый верхний)',
-            description: '1 - самая верхняя, 2 - ниже и т.д.',
+            title: 'Reihenfolge (1 - ganz oben)',
+            description: '1 - oberste Position, 2 - darunter, usw.',
             type: 'number',
             initialValue: 10,
         }),
