@@ -25,12 +25,13 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const announcement = await client.fetch(`*[_type == "announcement"][0]`);
+  console.log(announcement)
 
   return (
     <html lang="de" suppressHydrationWarning>
       <body>
         <RootLayoutWrapper>
-          <AnnouncementModal data={announcement?.announcement} />
+          <AnnouncementModal data={announcement} />
           {children}
         </RootLayoutWrapper>
       </body>
