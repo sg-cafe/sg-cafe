@@ -1,10 +1,10 @@
-// app/layout.tsx (ФИНАЛЬНАЯ ВЕРСИЯ БЕЗ ПОВТОРНЫХ HTML-ТЕГОВ)
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import RootLayoutWrapper from "@/components/layout/RootLayoutWrapper"; // ИМПОРТ ОБЕРТКИ
+import RootLayoutWrapper from "@/components/layout/RootLayoutWrapper";
 import "./globals.css";
+import AnnouncementModal from "@/components/Modal";
+ import { client } from "@/sanity/lib/client";
 
-// Подключение шрифтов (как у тебя)
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -23,16 +23,17 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const announcement = await client.fetch(`*[_type == "announcement"][0]`);
+
   return (
-    <html lang="de" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
-      <RootLayoutWrapper>
-        {children}
-      </RootLayoutWrapper>
+    <html lang="de" suppressHydrationWarning>
+      <body>
+        <RootLayoutWrapper>
+          <AnnouncementModal data={announcement?.announcement} />
+          {children}
+        </RootLayoutWrapper>
+      </body>
     </html>
   );
 }

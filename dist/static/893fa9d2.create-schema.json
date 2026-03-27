@@ -1,0 +1,118 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Beispiel: Wochenkarte oder Hauptspeisekarte",
+        "name": "label",
+        "type": "string",
+        "title": "Button-Beschriftung"
+      },
+      {
+        "options": {
+          "accept": ".pdf"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "file",
+        "type": "file",
+        "title": "PDF-Datei"
+      },
+      {
+        "initialValue": 10,
+        "description": "1 - oberste Position, 2 - darunter, usw.",
+        "name": "priority",
+        "type": "number",
+        "title": "Reihenfolge (1 - ganz oben)"
+      }
+    ],
+    "name": "menuBtn",
+    "type": "document",
+    "title": "Speisekarte-Buttons (PDF)"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Ruhetag",
+        "name": "monday",
+        "type": "string",
+        "title": "Montag"
+      },
+      {
+        "name": "tueFri",
+        "type": "string",
+        "title": "Dienstag – Freitag"
+      },
+      {
+        "name": "tueFriKuche",
+        "type": "string",
+        "title": "Dienstag – Freitag (Küche)"
+      },
+      {
+        "name": "saturday",
+        "type": "string",
+        "title": "Samstag & Feiertage"
+      },
+      {
+        "name": "saturdayKuche",
+        "type": "string",
+        "title": "Samstag (Küche)"
+      },
+      {
+        "name": "sunday",
+        "type": "string",
+        "title": "Sonntag"
+      },
+      {
+        "name": "sundayKuche",
+        "type": "string",
+        "title": "Sonntag (Küche)"
+      }
+    ],
+    "name": "openingHours",
+    "type": "document",
+    "title": "Öffnungszeiten"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": false,
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Anzeigen? (Показывать модалку?)"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "title": "Titel (Заголовок)"
+      },
+      {
+        "name": "text",
+        "type": "text",
+        "title": "Nachricht (Текст сообщения)"
+      }
+    ],
+    "name": "announcement",
+    "type": "document",
+    "title": "Wichtige Mitteilung (Pop-up)"
+  }
+]
