@@ -4,15 +4,16 @@ import { Clock, MapPin, Phone, Mail, Printer } from 'lucide-react';
 
 export default async function ContactSection() {
 
-    // Дефолтные значения на случай, если в Sanity еще ничего не заполнено
-    const hours = await client.fetch(`*[_type == "siteSettings"][0].openingHours`) || {
+    const settings = await client.fetch(`*[_type == "openingHours"][0]`);
+
+    const hours = settings || {
         monday: 'Ruhetag',
         tueFri: '11:00 – 14:30 | 17:00 – 23:00',
-        tueFriKuche: 'Küche bis 14:00 & 22:00',
+        tueFriKuche: 'bis 14:00 & 22:00',
         saturday: '11:00 – 23:00',
-        saturdayKuche: 'Küche: 11-15 & 16:30-22:00',
+        saturdayKuche: '11-15 & 16:30-22:00',
         sunday: '11:00 – 22:00',
-        sundayKuche: 'Küche: 11-15 & 16:30-21:00',
+        sundayKuche: '11-15 & 16:30-21:00',
     };
 
     return (
@@ -29,7 +30,7 @@ export default async function ContactSection() {
                         </h2>
 
                         <div className="space-y-4 text-dark-cafe/80">
-                            {/* Понедельник (с проверкой на Ruhetag) */}
+                            {/* Понедельник */}
                             <div className={`flex justify-between border-b border-accent-cafe/10 pb-2 font-semibold ${hours.monday.toLowerCase().includes('ruhetag') ? 'text-red-800' : ''}`}>
                                 <span>Montag</span>
                                 <span className="uppercase tracking-widest">{hours.monday}</span>
@@ -39,7 +40,10 @@ export default async function ContactSection() {
                             <div className="flex flex-col sm:flex-row sm:justify-between border-b border-accent-cafe/10 pb-2 gap-1 sm:gap-0">
                                 <div className="flex flex-col">
                                     <span className="font-medium">Dienstag – Freitag</span>
-                                    <span className="text-[10px] uppercase opacity-60">{hours.tueFriKuche}</span>
+                                    {/* СЛОВО KÜCHE СТАТИЧНО */}
+                                    <span className="text-[10px] uppercase opacity-60 font-bold">
+                                        Küche {hours.tueFriKuche}
+                                    </span>
                                 </div>
                                 <div className="text-left sm:text-right font-medium">
                                     {hours.tueFri}
@@ -50,7 +54,10 @@ export default async function ContactSection() {
                             <div className="flex flex-col sm:flex-row sm:justify-between border-b border-accent-cafe/10 pb-2 gap-1 sm:gap-0">
                                 <div className="flex flex-col">
                                     <span className="font-medium">Samstag & Feiertage</span>
-                                    <span className="text-[10px] uppercase opacity-60">{hours.saturdayKuche}</span>
+                                    {/* СЛОВО KÜCHE СТАТИЧНО */}
+                                    <span className="text-[10px] uppercase opacity-60 font-bold">
+                                        Küche: {hours.saturdayKuche}
+                                    </span>
                                 </div>
                                 <div className="text-left sm:text-right font-medium">{hours.saturday}</div>
                             </div>
@@ -59,7 +66,10 @@ export default async function ContactSection() {
                             <div className="flex flex-col sm:flex-row sm:justify-between border-b border-accent-cafe/10 pb-2 gap-1 sm:gap-0">
                                 <div className="flex flex-col">
                                     <span className="font-medium">Sonntag</span>
-                                    <span className="text-[10px] uppercase opacity-60">{hours.sundayKuche}</span>
+                                    {/* СЛОВО KÜCHE СТАТИЧНО */}
+                                    <span className="text-[10px] uppercase opacity-60 font-bold">
+                                        Küche: {hours.sundayKuche}
+                                    </span>
                                 </div>
                                 <div className="text-left sm:text-right font-medium">{hours.sunday}</div>
                             </div>
