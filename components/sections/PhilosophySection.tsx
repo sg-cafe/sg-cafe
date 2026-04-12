@@ -45,8 +45,7 @@ export default function PhilosophySection() {
                     Mit unserem <strong>Catering- und Partyservice</strong> begleiten wir Ihre Veranstaltung kulinarisch und sorgen dafür, 
                     dass es Ihnen und Ihren Gästen an nichts fehlt.
                     Gerne beraten wir Sie persönlich und individuell bei der Auswahl der Speisen, der Zusammenstellung des 
-                    Menüs sowie bei der Planung Ihres Events, damit alles genau Ihren Vorstellungen entspricht
-                    Möchten Sie unsere Spezialitäten an einem Ort Ihrer Wahl genießen?
+                    Menüs sowie bei der Planung Ihres Events, damit alles genau Ihren Vorstellungen entspricht.
                 </p>
             </div>
 
