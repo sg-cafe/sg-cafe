@@ -15,7 +15,7 @@ const ROOMS = [
         description: "Genießen Sie die warme Jahreszeit auf unserer einladenden Terrasse im Freien – ideal für Sommerfeste.",
         capacity: "Flexibel",
         features: ["Außenbereich", "Sonnenschirme", "Frische Luft"],
-        image: "/fotos/terassa-1.png"
+        image: "/rooms/terassa.jpg"
     },
    
     {
@@ -23,7 +23,7 @@ const ROOMS = [
         description: "Ideal für diskrete Trauerfeiern oder private Familienfeste im kleinen, ruhigen Kreis.",
         capacity: "bis 40",
         features: ["Absolute Privatsphäre", "Eigener Service"],
-        image: "/rooms/private-room.png"
+        image: "/rooms/private-room.jpg"
     },
     {
         title: "Raucherraum",
@@ -37,7 +37,7 @@ const ROOMS = [
         description: "Wir bringen unsere kulinarischen Highlights direkt zu Ihnen nach Hause oder in Ihre Wunschlocation.",
         capacity: "bis 100 Personen",
         features: ["Buffet-Service", "Individuelle Planung", "Lieferung"],
-        image: "/fotos/cartering.png" // Можно поставить фото красивого блюда или фуршета
+        image: "/rooms/cartering.jpg" // Можно поставить фото красивого блюда или фуршета
     }
 ];
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function PhilosophySection() {
+export default function () {
     return (
         <section className="bg-light-cafe relative overflow-hidden">
 

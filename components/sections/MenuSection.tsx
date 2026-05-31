@@ -35,10 +35,10 @@ export default async function MenuPage() {
 
     // Ссылки на картинки (замени их на свои пути в папке public или ссылки из Sanity)
     const bgImages = [
-        { src: "/eat/eat.jpg", pos: "top-15 left-[-5%] rotate-12" },
-        { src: "/eat/eat-2.jpg", pos: "top-1/3 right-[-2%] -rotate-12" },
-        { src: "/eat/eat-4.jpg", pos: "bottom-40 left-[5%] -rotate-6" },
-        { src: "/eat/eat-5.jpg", pos: "bottom-10 right-[2%] rotate-12" },
+        { src: "/eat/eat-2.png", pos: "top-15 left-[-5%] rotate-12" },
+        { src: "/eat/eat-3.png", pos: "top-1/3 right-[-2%] -rotate-12" },
+        { src: "/eat/eat-4.png", pos: "bottom-40 left-[5%] -rotate-6" },
+        { src: "/eat/eat-5.png", pos: "bottom-10 right-[2%] rotate-12" },
 
     ];
 

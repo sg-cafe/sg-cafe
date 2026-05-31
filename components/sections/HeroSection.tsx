@@ -4,11 +4,13 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-const images = [
-    "/fotos/main-room.jpg",
-    "/fotos/main-room-3.png",
-    "/fotos/terassa-1.png",
-];
+const TOTAL_IMAGES = 4;
+
+// 2. Генерируем массив путей динамически
+const images = Array.from(
+    { length: TOTAL_IMAGES },
+     (_, i) => `/carousel/carousel-${i + 1}.jpg`
+    );
 
 const tags = [" Essen -", "Events -", "Sport"];
 

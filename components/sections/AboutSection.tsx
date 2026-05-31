@@ -62,7 +62,7 @@ export default function AboutSection() {
                     >
                         <div className="relative h-[400px] md:h-[600px] w-full overflow-hidden shadow-xl rounded-xl">
                             <Image
-                                src="/eat/eat-8.png"
+                                src="/eat/eat-1.png"
                                 alt="Unsere Qualität"
                                 fill
                                 className="object-cover transition-transform duration-700 hover:scale-105"
